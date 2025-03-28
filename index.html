@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Refinance Enquiry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        .consent {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .consent input {
+            margin-right: 10px;
+        }
+        .consent a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .consent a:hover {
+            text-decoration: underline;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Mortgage Refinance Enquiry Form</h2>
+        <form name="mortgage-refinance-form" method="POST" netlify>
+            <input id="leadid_token" name="universal_leadid" type="hidden" value=""/>
+            <input type="hidden" name="ipv4" id="ipv4-field" />
+            
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <div class="consent">
+                <input type="checkbox" name="consent" required>
+                <label>I agree to the <a href="#">privacy policy</a> and consent to being contacted regarding my mortgage refinance enquiry.</label>
+            </div>
+            
+            <button type="submit">Submit Enquiry</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('https://api.ipify.org?format=json', function(data) {
+                $('#ipv4-field').val(data.ip);
+            });
+        });
+    </script>
+    
+    <script id="LeadiDscript" type="text/javascript">
+        (function() {
+            var s = document.createElement('script');
+            s.id = 'LeadiDscript_campaign';
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//create.lidstatic.com/campaign/c44b2b5b-f1a0-194f-9250-bda390423382.js?snippet_version=2';
+            var LeadiDscript = document.getElementById('LeadiDscript');
+            LeadiDscript.parentNode.insertBefore(s, LeadiDscript);
+        })();
+    </script>
+    <noscript>
+        <img src='//create.leadid.com/noscript.gif?lac=611B57D4-297F-F65F-7E3C-BB0ED7A4A296&lck=c44b2b5b-f1a0-194f-9250-bda390423382&snippet_version=2' />
+    </noscript>
+</body>
+</html>
